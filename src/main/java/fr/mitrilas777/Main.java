@@ -20,6 +20,7 @@ import net.minestom.server.instance.LightingChunk;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.InstanceManager;
+import net.minestom.server.registry.DynamicRegistry;
 import net.minestom.server.world.biome.Biome;
 
 
@@ -27,7 +28,7 @@ import java.time.Duration;
 
 
 
-public class MainDemo {
+public class Main {
     public static void main(String[]args){
         //initier le serveur
         MinecraftServer minecraftServer = MinecraftServer.init();
@@ -92,10 +93,9 @@ public class MainDemo {
 
         //generation du monde
         //création de l'océan
-        public class BiomeGenerator{
-            InstanceContainer instance = MinecraftServer.getInstanceManager().createInstanceContainer();
-            InstanceContainer instance = new InstanceContainer();
-            instance(int x,int y,int z, Biome ;);
+        class BiomeGenerator{
+            final InstanceContainer instance = MinecraftServer.getInstanceManager().createInstanceContainer();
+
             public static void applyOceanBiome(Instance instance, Point start, Point end){
                 int minX=Math.min((int) start.x(),(int)end.x());
                 int maxX=Math.max((int) start.x(),(int)end.x());
@@ -103,7 +103,7 @@ public class MainDemo {
                 int maxY=Math.max((int) start.y(),(int)end.y());
                 int minZ=Math.min((int) start.z(),(int)end.z());
                 int maxZ=Math.max((int) start.z(),(int)end.z());
-                Biome oceanBiome = Biome.OCEAN;
+                DynamicRegistry.Key<Biome> oceanBiome = Biome.OCEAN;
                 for(int x=0; x< 20; x++){
                     for(int y=20; y< 63; y++){
                         for(int z=0; z< 20; z++){
